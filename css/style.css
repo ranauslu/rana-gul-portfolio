@@ -150,6 +150,9 @@ body[data-lang="en"] .lang-en { color: var(--accent); }
   letter-spacing: 0.04em; text-transform: uppercase;
 }
 
+.about-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 30px; align-items: center; }
+.about-actions .cv-btn { margin-top: 0; }
+
 /* ---------- Filtreler ---------- */
 .filters { display: flex; flex-wrap: wrap; gap: 26px; margin-bottom: 40px; border-bottom: 1px solid var(--line); padding-bottom: 6px; }
 .filter {

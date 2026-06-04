@@ -42,6 +42,7 @@ const src = (yol) => encodeURI(yol);
 /* ---------------- Galeri ---------------- */
 const gallery = document.getElementById("gallery");
 function renderGallery(filtre = "all") {
+  if (!gallery) return;
   gallery.innerHTML = "";
   DESENLER.filter((d) => filtre === "all" || d.kategori === filtre).forEach((d) => {
     const tag = KATEGORI_AD[d.kategori];
@@ -71,6 +72,7 @@ document.querySelectorAll(".filter").forEach((btn) => {
 /* ---------------- Satış ---------------- */
 const shop = document.getElementById("shop");
 function renderShop() {
+  if (!shop) return;
   shop.innerHTML = "";
   DESENLER.forEach((d) => {
     const tag = KATEGORI_AD[d.kategori];
@@ -127,9 +129,11 @@ function closeLightbox() {
   lightbox.setAttribute("aria-hidden", "true");
   lightboxImg.src = "";
 }
-document.querySelector(".lightbox-close").addEventListener("click", closeLightbox);
-lightbox.addEventListener("click", (e) => { if (e.target === lightbox) closeLightbox(); });
-document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeLightbox(); });
+if (lightbox) {
+  document.querySelector(".lightbox-close").addEventListener("click", closeLightbox);
+  lightbox.addEventListener("click", (e) => { if (e.target === lightbox) closeLightbox(); });
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeLightbox(); });
+}
 
 /* ---------------- Dil değiştirme ---------------- */
 function applyLang(lang) {
@@ -164,15 +168,19 @@ navLinks.querySelectorAll("a").forEach((a) =>
 );
 
 /* ---------------- İletişim formu (mailto) ---------------- */
-document.getElementById("contactForm").addEventListener("submit", (e) => {
-  e.preventDefault();
-  const f = e.target;
-  const konu = encodeURIComponent(`Web sitesi mesajı — ${f.ad.value}`);
-  const govde = encodeURIComponent(`${f.mesaj.value}\n\n— ${f.ad.value} (${f.email.value})`);
-  window.location.href = `mailto:${EPOSTA}?subject=${konu}&body=${govde}`;
-});
+const contactForm = document.getElementById("contactForm");
+if (contactForm) {
+  contactForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const f = e.target;
+    const konu = encodeURIComponent(`Web sitesi mesajı — ${f.ad.value}`);
+    const govde = encodeURIComponent(`${f.mesaj.value}\n\n— ${f.ad.value} (${f.email.value})`);
+    window.location.href = `mailto:${EPOSTA}?subject=${konu}&body=${govde}`;
+  });
+}
 
 /* ---------------- Başlat ---------------- */
 renderBrands();
-document.getElementById("year").textContent = new Date().getFullYear();
+const yearEl = document.getElementById("year");
+if (yearEl) yearEl.textContent = new Date().getFullYear();
 applyLang(localStorage.getItem("dil") || "tr");
