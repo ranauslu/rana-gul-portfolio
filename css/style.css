@@ -251,6 +251,8 @@ body[data-lang="en"] .lang-en { color: var(--accent); }
 .ig-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 20px; flex-wrap: wrap; margin-bottom: 40px; }
 .ig-head .section-title { margin: 0; }
 .ig-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+.ig-embeds { display: flex; flex-wrap: wrap; gap: 22px; justify-content: center; }
+.ig-embeds .instagram-media { flex: 0 1 380px; margin: 0 !important; min-width: 260px !important; }
 .ig-tile {
   position: relative; display: block; overflow: hidden; border: 1px solid var(--line);
   border-radius: var(--r); background: #fff; aspect-ratio: 1 / 1;
