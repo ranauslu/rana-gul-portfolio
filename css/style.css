@@ -246,6 +246,8 @@ body[data-lang="en"] .lang-en { color: var(--accent); }
 .license-note { color: var(--ink-soft); font-size: 0.82rem; margin-top: 34px; }
 
 /* ---------- Instagram ---------- */
+.ig-eyebrow { display: inline-flex; align-items: center; gap: 7px; }
+.ig-logo { flex: none; }
 .ig-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 20px; flex-wrap: wrap; margin-bottom: 40px; }
 .ig-head .section-title { margin: 0; }
 .ig-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
