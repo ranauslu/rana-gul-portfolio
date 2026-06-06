@@ -223,6 +223,16 @@ body[data-lang="en"] .lang-en { color: var(--accent); }
 .process strong { color: var(--ink); text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.86rem; font-weight: 600; }
 .process li > span:last-child { color: var(--ink-soft); font-size: 0.95rem; }
 
+/* Ekran okuyucu için görünmez başlık (SEO + erişilebilirlik) */
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+}
+
+/* Firmalara özel çalışma görsel bandı */
+.firma-banner { border: 1px solid var(--line); border-radius: var(--r); overflow: hidden; margin-bottom: 40px; }
+.firma-banner img { width: 100%; height: auto; display: block; }
+
 /* Proje başlat görselli bandı (yazı görselin içinde, buton üstüne biner) */
 .proje-banner { position: relative; border: 1px solid var(--line); border-radius: var(--r); overflow: hidden; }
 .proje-banner img { width: 100%; height: auto; display: block; }
