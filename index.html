@@ -158,23 +158,50 @@
       </div>
     </section>
 
-    <!-- ============ DESEN SATIN AL ============ -->
+    <!-- ============ DESEN SATIN AL (ŞİFRELİ) ============ -->
     <section class="section section-alt" id="satis">
       <div class="container">
-        <h2 class="section-title" data-tr="Desen Satın Al" data-en="Buy Patterns">Desen Satın Al</h2>
-        <p class="section-lead"
-           data-tr="Aşağıdaki desenleri lisanslı olarak satın alabilirsiniz. İlgilendiğiniz desen için 'Satın Al / Teklif Al' butonuna tıklayın; ödeme ve teslimat detaylarını sizinle paylaşayım."
-           data-en="The patterns below are available under license. Click 'Buy / Request Quote' for the design you're interested in and I'll share payment and delivery details.">
-          Aşağıdaki desenleri lisanslı olarak satın alabilirsiniz. İlgilendiğiniz desen için 'Satın Al / Teklif Al' butonuna tıklayın; ödeme ve teslimat detaylarını sizinle paylaşayım.
-        </p>
 
-        <div class="shop" id="shop"><!-- JS ile doldurulur --></div>
+        <!-- KİLİT EKRANI -->
+        <div class="lock-gate" id="lockGate">
+          <span class="lock-ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="11" width="18" height="11" rx="2" /><path d="M7 11V7a5 5 0 0 1 10 0v4" />
+            </svg>
+          </span>
+          <h2 class="section-title" data-tr="Desen Satın Al" data-en="Buy Patterns">Desen Satın Al</h2>
+          <p class="section-lead lock-lead"
+             data-tr="Bu bölüm şifrelidir. Desenleri görüntülemek için şifreyi girin."
+             data-en="This section is encrypted. Enter the password to view the designs.">
+            Bu bölüm şifrelidir. Desenleri görüntülemek için şifreyi girin.
+          </p>
+          <form class="lock-form" id="lockForm" autocomplete="off">
+            <input type="password" id="lockInput" required
+                   data-tr-ph="Şifre" data-en-ph="Password" placeholder="Şifre" aria-label="Şifre" />
+            <button class="btn btn-primary" type="submit" data-tr="Aç" data-en="Unlock">Aç</button>
+          </form>
+          <p class="lock-error" id="lockError" role="alert" hidden
+             data-tr="Şifre hatalı. Tekrar deneyin." data-en="Wrong password. Try again.">Şifre hatalı. Tekrar deneyin.</p>
+        </div>
 
-        <p class="license-note"
-           data-tr="* Tüm desenler Rana Gül'e aittir. Satın alım, üzerinde anlaşılan kullanım lisansını kapsar; yeniden satış ve dağıtım izinsiz yapılamaz."
-           data-en="* All patterns belong to Rana Gül. A purchase covers the agreed usage license; resale and redistribution are not permitted without consent.">
-          * Tüm desenler Rana Gül'e aittir. Satın alım, üzerinde anlaşılan kullanım lisansını kapsar; yeniden satış ve dağıtım izinsiz yapılamaz.
-        </p>
+        <!-- ŞİFRE GİRİLİNCE GÖRÜNEN İÇERİK -->
+        <div class="shop-protected" id="shopProtected" hidden>
+          <h2 class="section-title" data-tr="Desen Satın Al" data-en="Buy Patterns">Desen Satın Al</h2>
+          <p class="section-lead"
+             data-tr="Aşağıdaki desenleri lisanslı olarak satın alabilirsiniz. İlgilendiğiniz desen için 'Satın Al / Teklif Al' butonuna tıklayın; ödeme ve teslimat detaylarını sizinle paylaşayım."
+             data-en="The patterns below are available under license. Click 'Buy / Request Quote' for the design you're interested in and I'll share payment and delivery details.">
+            Aşağıdaki desenleri lisanslı olarak satın alabilirsiniz. İlgilendiğiniz desen için 'Satın Al / Teklif Al' butonuna tıklayın; ödeme ve teslimat detaylarını sizinle paylaşayım.
+          </p>
+
+          <div class="shop" id="shop"><!-- JS ile çözülüp doldurulur --></div>
+
+          <p class="license-note"
+             data-tr="* Tüm desenler Rana Gül'e aittir. Satın alım, üzerinde anlaşılan kullanım lisansını kapsar; yeniden satış ve dağıtım izinsiz yapılamaz."
+             data-en="* All patterns belong to Rana Gül. A purchase covers the agreed usage license; resale and redistribution are not permitted without consent.">
+            * Tüm desenler Rana Gül'e aittir. Satın alım, üzerinde anlaşılan kullanım lisansını kapsar; yeniden satış ve dağıtım izinsiz yapılamaz.
+          </p>
+        </div>
+
       </div>
     </section>
 
@@ -265,6 +292,6 @@
   </div>
 
   <script async src="https://www.instagram.com/embed.js"></script>
-  <script src="js/main.js"></script>
+  <script src="js/main.js?v=enc1"></script>
 </body>
 </html>

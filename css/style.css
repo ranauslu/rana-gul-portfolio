@@ -244,6 +244,19 @@ body[data-lang="en"] .lang-en { color: var(--accent); }
   .proje-btn { position: static; }
 }
 
+/* ---------- Şifre kilidi ---------- */
+.lock-gate { max-width: 480px; margin: 0 auto; text-align: center; padding: 20px 0; }
+.lock-ico { display: inline-flex; color: var(--accent); margin-bottom: 18px; }
+.lock-gate .section-title { margin-bottom: 14px; }
+.lock-lead { margin: 0 auto 26px; }
+.lock-form { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+.lock-form input {
+  font: inherit; font-size: 0.98rem; padding: 13px 16px; min-width: 220px; flex: 1;
+  border: 1px solid var(--line); border-radius: var(--r); background: #fff; color: var(--ink);
+}
+.lock-form input:focus { outline: none; border-color: var(--ink); }
+.lock-error { color: #c0392b; font-size: 0.9rem; margin: 16px 0 0; }
+
 /* ---------- Satış ---------- */
 .shop { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
 .shop-item {

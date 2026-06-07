@@ -1,2 +1,6 @@
 .DS_Store
 .claude/
+
+# Açık (şifrelenmemiş) desen dosyaları siteye/repoya konmaz — sadece şifreli .enc yayınlanır
+desenlerim/
+.tmp_enc/
