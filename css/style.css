@@ -138,6 +138,7 @@ body[data-lang="en"] .lang-en { color: var(--accent); }
   font-size: 2.6rem; letter-spacing: 0.1em; color: var(--ink-soft);
   background: var(--bg-alt); font-weight: 500;
 }
+.photo-img { width: 100%; aspect-ratio: 4/5; object-fit: cover; object-position: center 18%; display: block; }
 .about-text p { margin: 0 0 18px; color: var(--ink-soft); }
 .about-sub {
   font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.18em;

@@ -4,3 +4,6 @@
 # Açık (şifrelenmemiş) desen dosyaları siteye/repoya konmaz — sadece şifreli .enc yayınlanır
 desenlerim/
 .tmp_enc/
+
+# Ham görsel kaynakları (optimize edilmiş halleri assets/ içinde) — repoya gerek yok
+fotoğraf/
