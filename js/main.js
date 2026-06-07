@@ -162,6 +162,73 @@ if (lockForm) {
   });
 }
 
+/* ---------------- Banner carousel ---------------- */
+const BANNER_COUNT = 15; // assets/banners/b01.jpg ... b15.jpg
+const bc = document.getElementById("bc");
+function buildCarousel() {
+  if (!bc) return;
+  const slides = [];
+  const dots = document.createElement("div");
+  dots.className = "bc-dots";
+
+  for (let i = 1; i <= BANNER_COUNT; i++) {
+    const img = document.createElement("img");
+    img.className = "bc-slide" + (i === 1 ? " active" : "");
+    img.alt = "Rana Gül Design Studio — desen koleksiyonu " + i;
+    img.decoding = "async";
+    const path = "assets/banners/b" + String(i).padStart(2, "0") + ".jpg";
+    if (i === 1) img.src = path; else img.dataset.src = path;
+    bc.appendChild(img);
+    slides.push(img);
+
+    const dot = document.createElement("button");
+    dot.className = "bc-dot" + (i === 1 ? " active" : "");
+    dot.type = "button";
+    dot.setAttribute("aria-label", "Slayt " + i);
+    dot.addEventListener("click", () => goTo(i - 1, true));
+    dots.appendChild(dot);
+  }
+
+  const prev = document.createElement("button");
+  prev.className = "bc-arrow bc-prev"; prev.type = "button";
+  prev.setAttribute("aria-label", "Önceki"); prev.innerHTML = "‹";
+  const next = document.createElement("button");
+  next.className = "bc-arrow bc-next"; next.type = "button";
+  next.setAttribute("aria-label", "Sonraki"); next.innerHTML = "›";
+  prev.addEventListener("click", () => goTo(cur - 1, true));
+  next.addEventListener("click", () => goTo(cur + 1, true));
+
+  bc.appendChild(prev); bc.appendChild(next); bc.appendChild(dots);
+
+  let cur = 0;
+  let timer = null;
+  const dotEls = dots.querySelectorAll(".bc-dot");
+
+  function load(i) {
+    const s = slides[i];
+    if (s && s.dataset.src) { s.src = s.dataset.src; delete s.dataset.src; }
+  }
+  function goTo(i, manual) {
+    i = (i + BANNER_COUNT) % BANNER_COUNT;
+    slides[cur].classList.remove("active");
+    dotEls[cur].classList.remove("active");
+    cur = i;
+    load(cur); load((cur + 1) % BANNER_COUNT); // mevcut + sonraki ön-yükle
+    slides[cur].classList.add("active");
+    dotEls[cur].classList.add("active");
+    if (manual) restart();
+  }
+  function start() { timer = setInterval(() => goTo(cur + 1, false), 5000); }
+  function restart() { clearInterval(timer); start(); }
+
+  load(1); // ikinci slaytı baştan hazırla
+  bc.addEventListener("mouseenter", () => clearInterval(timer));
+  bc.addEventListener("mouseleave", start);
+  start();
+  // dışarıdan erişim (goTo) için kapanışta tut
+  window.__bcGoTo = goTo;
+}
+
 /* ---------------- Markalar ---------------- */
 const firmalar = document.getElementById("firmalar");
 function renderBrands() {
@@ -248,6 +315,7 @@ if (contactForm) {
 }
 
 /* ---------------- Başlat ---------------- */
+buildCarousel();
 renderBrands();
 const yearEl = document.getElementById("year");
 if (yearEl) yearEl.textContent = new Date().getFullYear();
